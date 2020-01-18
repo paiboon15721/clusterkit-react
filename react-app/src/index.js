@@ -15,8 +15,8 @@ const App = () => {
 
   const handleSubmit = () => {
     const result = {
-      userName: userName,
-      password: password
+      userName,
+      password
     };
 
     console.log(result);
