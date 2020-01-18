@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
+  Link
 } from "react-router-dom";
 import LoginApp from "./LoginApp";
 import CommentApp from "./CommentApp";
@@ -12,6 +13,14 @@ import CommentApp from "./CommentApp";
 const App = () => (
   <div className="container">
     <Router>
+      <ul>
+        <li>
+          <Link to="/login-app">Login App</Link>
+        </li>
+        <li>
+          <Link to="/comment-app">Comment App</Link>
+        </li>
+      </ul>
       <Switch>
         <Route exact path="/">
           <Redirect to="/login-app" />
