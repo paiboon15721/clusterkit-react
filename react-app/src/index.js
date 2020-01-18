@@ -10,21 +10,17 @@ import {
 import LoginApp from "./LoginApp";
 import CommentApp from "./CommentApp";
 import Layout from "./components/Layout";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => (
-  <div className="container">
+  <Layout>
     <Router>
-      <ul>
-        <li>
-          <Link to="/login-app">Login App</Link>
-        </li>
-        <li>
-          <Link to="/comment-app">Comment App</Link>
-        </li>
-      </ul>
       <Switch>
         <Route exact path="/">
           <Redirect to="/login-app" />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
         </Route>
         <Route path="/login-app">
           <LoginApp name="Login App" />
@@ -34,7 +30,7 @@ const App = () => (
         </Route>
       </Switch>
     </Router>
-  </div>
+  </Layout>
 );
 
-ReactDOM.render(<Layout />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
