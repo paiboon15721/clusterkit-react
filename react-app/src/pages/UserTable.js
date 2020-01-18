@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Table } from "antd";
+import { useAsync } from "react-use";
 import axios from "axios";
 
 const App = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const users = useAsync(async () => {
+    const { data: users } = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    return users;
+  });
 
-  useEffect(() => {
-    setLoading(true);
-    axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
-      setLoading(false);
-      setUsers(res.data);
-    });
-  }, []);
+  console.log(users);
 
   const columns = [
     {
@@ -37,7 +36,9 @@ const App = () => {
     }
   ];
 
-  return <Table loading={loading} dataSource={users} columns={columns} />;
+  return (
+    <Table loading={users.loading} dataSource={users.value} columns={columns} />
+  );
 };
 
 export default App;
