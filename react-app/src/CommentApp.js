@@ -9,7 +9,9 @@ const App = () => {
   };
 
   const handleSubmit = () => {
-    console.log(currentComment);
+    setComments([...comments, currentComment]);
+    setCurrentComment("");
+    console.log(comments);
   };
 
   return (
@@ -26,12 +28,11 @@ const App = () => {
           Submit
         </button>
       </div>
-      <div className="alert alert-primary" role="alert">
-        Comment....
-      </div>
-      <div className="alert alert-primary" role="alert">
-        Comment....
-      </div>
+      {comments.map(v => (
+        <div className="alert alert-primary" role="alert">
+          {v}
+        </div>
+      ))}
     </div>
   );
 };
