@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const App = () => {
   const [currentComment, setCurrentComment] = useState("");
   const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    console.log("componentDidMount");
+  }, []);
 
   const handleCommentChange = e => {
     setCurrentComment(e.target.value);
@@ -11,7 +16,6 @@ const App = () => {
   const handleSubmit = () => {
     setComments([currentComment, ...comments]);
     setCurrentComment("");
-    console.log(comments);
   };
 
   return (
