@@ -11,8 +11,6 @@ const App = () => {
     return users;
   });
 
-  console.log(users);
-
   const columns = [
     {
       title: "Name",
@@ -37,7 +35,12 @@ const App = () => {
   ];
 
   return (
-    <Table loading={users.loading} dataSource={users.value} columns={columns} />
+    <Table
+      rowKey="id"
+      loading={users.loading}
+      dataSource={users.value}
+      columns={columns}
+    />
   );
 };
 

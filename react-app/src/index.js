@@ -12,6 +12,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import UserTable from "./pages/UserTable";
 import ReactUse from "./pages/ReactUse";
+import UncontrolForm from "./pages/UncontrolledForm";
 import "antd/dist/antd.css";
 
 export const menus = [
@@ -19,7 +20,8 @@ export const menus = [
   { path: "/login-app", name: "Login App", component: LoginApp },
   { path: "/comment-app", name: "Comment App", component: CommentApp },
   { path: "/user-table", name: "User Table", component: UserTable },
-  { path: "/react-use", name: "React Use", component: ReactUse }
+  { path: "/react-use", name: "React Use", component: ReactUse },
+  { path: "/uncontrol-form", name: "Uncontrol Form", component: UncontrolForm }
 ];
 
 const App = () => (
