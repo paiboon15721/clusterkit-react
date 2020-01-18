@@ -1,25 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import LoginApp from "./LoginApp";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoginApp from "./LoginApp";
 import CommentApp from "./CommentApp";
 
 const App = () => (
   <div className="container">
-    <CommentApp />
+    <Router>
+      <Route path="/login-app">
+        <LoginApp name="Login App" />
+      </Route>
+      <Route path="/comment-app">
+        <CommentApp />
+      </Route>
+    </Router>
   </div>
 );
-
-// const App = () => (
-//   <div className="container">
-//     <div className="row">
-//       <div className="col">
-//         <LoginApp name="Login App 1" />
-//       </div>
-//       <div className="col">
-//         <LoginApp name="Login App 2" />
-//       </div>
-//     </div>
-//   </div>
-// );
 
 ReactDOM.render(<App />, document.getElementById("root"));
