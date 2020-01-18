@@ -12,4 +12,4 @@ const newArr = arr.map(function(v) {
   return `my ${v}`;
 });
 
-// console.log(newArr);
+console.log(newArr);
