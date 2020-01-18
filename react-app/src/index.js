@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LoginApp from "./LoginApp";
+// import LoginApp from "./LoginApp";
 import CommentApp from "./CommentApp";
 
 const App = () => (

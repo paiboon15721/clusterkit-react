@@ -6,7 +6,10 @@ const App = () => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    console.log("componentDidMount");
+    axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
+      const comments = res.data.map(v => `${v.name} ${v.email} ${v.phone}`);
+      setComments(comments);
+    });
   }, []);
 
   const handleCommentChange = e => {
