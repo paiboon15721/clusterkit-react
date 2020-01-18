@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import LoginApp from "./LoginApp";
 import CommentApp from "./CommentApp";
+import Layout from "./components/Layout";
 
 const App = () => (
   <div className="container">
@@ -36,4 +37,4 @@ const App = () => (
   </div>
 );
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Layout />, document.getElementById("root"));
