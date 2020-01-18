@@ -10,11 +10,14 @@ import LoginApp from "./pages/LoginApp";
 import CommentApp from "./pages/CommentApp";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
+import UserTable from "./pages/UserTable";
+import "antd/dist/antd.css";
 
 export const menus = [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
   { path: "/login-app", name: "Login App", component: LoginApp },
-  { path: "/comment-app", name: "Comment App", component: CommentApp }
+  { path: "/comment-app", name: "Comment App", component: CommentApp },
+  { path: "/user-table", name: "User Table", component: UserTable }
 ];
 
 const App = () => (
@@ -29,6 +32,9 @@ const App = () => (
             <v.component />
           </Route>
         ))}
+        <Route path="*">
+          <h1>404 Not Found</h1>
+        </Route>
       </Switch>
     </Layout>
   </Router>
