@@ -3,6 +3,12 @@ import ReactDOM from "react-dom";
 import LoginApp from "./LoginApp";
 import CommentApp from "./CommentApp";
 
+const App = () => (
+  <div className="container">
+    <CommentApp />
+  </div>
+);
+
 // const App = () => (
 //   <div className="container">
 //     <div className="row">
@@ -16,4 +22,4 @@ import CommentApp from "./CommentApp";
 //   </div>
 // );
 
-ReactDOM.render(<CommentApp />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
