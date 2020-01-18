@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 const App = () => {
+  const [currentComment, setCurrentComment] = useState("");
+  const [comments, setComments] = useState([]);
+
+  const handleCommentChange = e => {
+    setCurrentComment(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log(currentComment);
+  };
+
   return (
     <div>
       <div className="form-group mt-4">
-        <textarea className="form-control" />
+        <textarea
+          value={currentComment}
+          onChange={handleCommentChange}
+          className="form-control"
+        />
       </div>
       <div className="form-group">
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary" onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
-      <div class="alert alert-primary" role="alert">
+      <div className="alert alert-primary" role="alert">
         Comment....
       </div>
-      <div class="alert alert-primary" role="alert">
+      <div className="alert alert-primary" role="alert">
         Comment....
       </div>
     </div>
