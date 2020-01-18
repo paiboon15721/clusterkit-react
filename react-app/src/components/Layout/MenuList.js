@@ -46,3 +46,5 @@ const MenuList = () => {
     </nav>
   );
 };
+
+export default MenuList;
