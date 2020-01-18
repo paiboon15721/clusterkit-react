@@ -4,13 +4,18 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
-  Link
+  Redirect
 } from "react-router-dom";
-import LoginApp from "./LoginApp";
-import CommentApp from "./CommentApp";
+import LoginApp from "./pages/LoginApp";
+import CommentApp from "./pages/CommentApp";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
+
+export const menus = [
+  { path: "/dashboard", name: "Dashboard", component: Dashboard },
+  { path: "/login-app", name: "Login App", component: LoginApp },
+  { path: "/comment-app", name: "Comment App", component: CommentApp }
+];
 
 const App = () => (
   <Router>
@@ -19,15 +24,11 @@ const App = () => (
         <Route exact path="/">
           <Redirect to="/login-app" />
         </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-        <Route path="/login-app">
-          <LoginApp name="Login App" />
-        </Route>
-        <Route path="/comment-app">
-          <CommentApp />
-        </Route>
+        {menus.map(v => (
+          <Route key={v.path} path={v.path}>
+            <v.component />
+          </Route>
+        ))}
       </Switch>
     </Layout>
   </Router>

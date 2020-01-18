@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { menus } from "../../index";
 
 const MenuList = () => {
   const { pathname } = useLocation();
@@ -8,36 +9,16 @@ const MenuList = () => {
     <nav className="col-md-2 d-none d-md-block bg-light sidebar">
       <div className="sidebar-sticky">
         <ul className="nav flex-column">
-          <li className="nav-item">
-            <Link
-              to="/dashboard"
-              className={`nav-link${
-                pathname === "/dashboard" ? " active" : ""
-              }`}
-            >
-              Dashboard
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/login-app"
-              className={`nav-link${
-                pathname === "/login-app" ? " active" : ""
-              }`}
-            >
-              Login App
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/comment-app"
-              className={`nav-link${
-                pathname === "/comment-app" ? " active" : ""
-              }`}
-            >
-              Comment App
-            </Link>
-          </li>
+          {menus.map(v => (
+            <li key={v.path} className="nav-item">
+              <Link
+                to={v.path}
+                className={`nav-link${pathname === v.path ? " active" : ""}`}
+              >
+                {v.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
