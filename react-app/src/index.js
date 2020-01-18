@@ -13,8 +13,8 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 
 const App = () => (
-  <Layout>
-    <Router>
+  <Router>
+    <Layout>
       <Switch>
         <Route exact path="/">
           <Redirect to="/login-app" />
@@ -29,8 +29,8 @@ const App = () => (
           <CommentApp />
         </Route>
       </Switch>
-    </Router>
-  </Layout>
+    </Layout>
+  </Router>
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
