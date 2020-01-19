@@ -20,7 +20,7 @@ const App = props => {
     <div className="mt-4">
       <h1 className="display-4 mb-3">{props.name}</h1>
       <div className="form-group">
-        <input ref={username} placeholder="username" className="form-control" />
+        <input defaultValue="username" ref={username} placeholder="username" className="form-control" />
       </div>
       <div className="form-group">
         <input ref={password} placeholder="password" className="form-control" />
