@@ -1,10 +1,10 @@
 import React from "react";
 import { useAuth } from "../stores/auth";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 const App = () => {
-  const { setToken } = useAuth();
+  const { token, setToken } = useAuth();
   const history = useHistory();
 
   const handleLogin = async () => {
@@ -13,6 +13,11 @@ const App = () => {
     localStorage.setItem("token", data.user);
     history.push("/dashboard");
   };
+
+  if (token) {
+    return <Redirect to="/dashboard" />;
+  }
+
   return (
     <div
       style={{
