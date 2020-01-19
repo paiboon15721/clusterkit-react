@@ -18,7 +18,10 @@ import HookForm from "./pages/HookForm";
 import Context from "./pages/Context";
 import EditCompanyName from "./pages/EditCompanyName";
 import "antd/dist/antd.css";
+import Login from "./pages/Login";
 import { CompanyProvider } from "./stores/company";
+import { AuthProvider } from "./stores/auth";
+import PrivateRoute from "./components/PrivateRoute";
 
 export const menus = [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
@@ -40,23 +43,28 @@ export const menus = [
 const App = () => {
   return (
     <Router>
-      <CompanyProvider>
-        <Layout>
+      <AuthProvider>
+        <CompanyProvider>
           <Switch>
-            <Route exact path="/">
-              <Redirect to="/login-app" />
+            <Route exact path="/login">
+              <Login />
             </Route>
-            {menus.map(v => (
-              <Route key={v.path} path={v.path}>
-                <v.component />
+            <Layout>
+              <Route exact path="/">
+                <Redirect to="/login-app" />
               </Route>
-            ))}
-            <Route path="*">
-              <h1>404 Not Found</h1>
-            </Route>
+              {menus.map(v => (
+                <PrivateRoute exact key={v.path} path={v.path}>
+                  <v.component />
+                </PrivateRoute>
+              ))}
+              <Route exact path="*">
+                <h1>404 Not Found</h1>
+              </Route>
+            </Layout>
           </Switch>
-        </Layout>
-      </CompanyProvider>
+        </CompanyProvider>
+      </AuthProvider>
     </Router>
   );
 };
