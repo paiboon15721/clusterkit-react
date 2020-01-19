@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { companyContext } from "../stores/company";
+import React from "react";
+import { useCompanyContext } from "../stores/company";
 
 const App = () => {
-  const { companyName, setCompanyName } = useContext(companyContext);
+  const { companyName, setCompanyName } = useCompanyContext();
   return (
     <div className="form-group">
       <h1>{companyName}</h1>

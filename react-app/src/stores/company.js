@@ -1,6 +1,6 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 
-export const companyContext = createContext();
+const companyContext = createContext();
 
 export const CompanyProvider = ({ children }) => {
   const [companyName, setCompanyName] = useState("from context");
@@ -11,3 +11,5 @@ export const CompanyProvider = ({ children }) => {
     </companyContext.Provider>
   );
 };
+
+export const useCompanyContext = () => useContext(companyContext);
