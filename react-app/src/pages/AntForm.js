@@ -1,26 +1,41 @@
 import React from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
+import axios from "axios";
 
 const App = props => {
   const handleSubmit = e => {
     e.preventDefault();
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        axios.post("http://localhost:4000/customers", values).then(() => {
+          message.success("Add Customer success");
+        });
+      }
+    });
   };
-
-  console.log(props);
+  const { getFieldDecorator } = props.form;
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Item>
-        <Input placeholder="name" />
+        {getFieldDecorator("name", {
+          rules: [{ required: true, message: "กรุณาใส่ชื่อของท่าน" }]
+        })(<Input placeholder="name" />)}
       </Form.Item>
       <Form.Item>
-        <Input placeholder="age" />
+        {getFieldDecorator("age", {
+          rules: [{ required: true }]
+        })(<Input placeholder="age" />)}
       </Form.Item>
       <Form.Item>
-        <Input placeholder="phone" />
+        {getFieldDecorator("phone", { rules: [{ required: true }] })(
+          <Input placeholder="phone" />
+        )}
       </Form.Item>
       <Form.Item>
-        <Input placeholder="email" />
+        {getFieldDecorator("email", {
+          rules: [{ required: true }, { type: "email" }]
+        })(<Input placeholder="email" />)}
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">
