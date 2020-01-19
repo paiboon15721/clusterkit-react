@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
@@ -18,6 +18,7 @@ import HookForm from "./pages/HookForm";
 import Context from "./pages/Context";
 import EditCompanyName from "./pages/EditCompanyName";
 import "antd/dist/antd.css";
+import { CompanyProvider } from "./stores/company";
 
 export const menus = [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
@@ -37,32 +38,25 @@ export const menus = [
 ];
 
 const App = () => {
-  const [companyName, setCompanyName] = useState("CusterKit123");
-
   return (
     <Router>
-      <Layout companyName={companyName}>
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/login-app" />
-          </Route>
-          {menus.map(v => (
-            <Route key={v.path} path={v.path}>
-              {v.path === "/edit-company-name" ? (
-                <v.component
-                  companyName={companyName}
-                  setCompanyName={setCompanyName}
-                />
-              ) : (
-                <v.component />
-              )}
+      <CompanyProvider>
+        <Layout>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/login-app" />
             </Route>
-          ))}
-          <Route path="*">
-            <h1>404 Not Found</h1>
-          </Route>
-        </Switch>
-      </Layout>
+            {menus.map(v => (
+              <Route key={v.path} path={v.path}>
+                <v.component />
+              </Route>
+            ))}
+            <Route path="*">
+              <h1>404 Not Found</h1>
+            </Route>
+          </Switch>
+        </Layout>
+      </CompanyProvider>
     </Router>
   );
 };
