@@ -9,6 +9,7 @@ import HookForm from "../pages/HookForm";
 import Context from "../pages/Context";
 import EditCompanyName from "../pages/EditCompanyName";
 import ReduxTest from "../pages/ReduxTest";
+import ReduxMore from "../pages/ReduxMore";
 
 export default [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
@@ -25,5 +26,6 @@ export default [
     component: EditCompanyName
   },
   { path: "/context", name: "Context", component: Context },
-  { path: "/redux-test", name: "Redux Test", component: ReduxTest }
+  { path: "/redux-test", name: "Redux Test", component: ReduxTest },
+  { path: "/redux-more", name: "Redux More", component: ReduxMore }
 ];
