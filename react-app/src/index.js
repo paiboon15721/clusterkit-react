@@ -15,6 +15,7 @@ import ReactUse from "./pages/ReactUse";
 import AntForm from "./pages/AntForm";
 import UncontrolForm from "./pages/UncontrolledForm";
 import HookForm from "./pages/HookForm";
+import Context from "./pages/Context";
 import EditCompanyName from "./pages/EditCompanyName";
 import "antd/dist/antd.css";
 
@@ -31,7 +32,8 @@ export const menus = [
     path: "/edit-company-name",
     name: "Edit Company Name",
     component: EditCompanyName
-  }
+  },
+  { path: "/context", name: "Context", component: Context }
 ];
 
 const App = () => {
