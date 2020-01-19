@@ -5,7 +5,7 @@ import MenuList from "./MenuList";
 const App = props => {
   return (
     <>
-      <Header />
+      <Header companyName={props.companyName} />
       <div className="container-fluid">
         <div className="row">
           <MenuList />
