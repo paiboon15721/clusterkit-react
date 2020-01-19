@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { menus } from "../../index";
+import menus from "../../config/menus";
 
 const MenuList = () => {
   const { pathname } = useLocation();
