@@ -1,6 +1,7 @@
+import React, { Suspense, lazy } from "react";
 import LoginApp from "../pages/LoginApp";
 import CommentApp from "../pages/CommentApp";
-import Dashboard from "../pages/Dashboard";
+// import Dashboard from "../pages/Dashboard";
 import UserTable from "../pages/UserTable";
 import ReactUse from "../pages/ReactUse";
 import AntForm from "../pages/AntForm";
@@ -11,6 +12,13 @@ import EditCompanyName from "../pages/EditCompanyName";
 import ReduxTest from "../pages/ReduxTest";
 import ReduxMore from "../pages/ReduxMore";
 import ReduxFetch from "../pages/ReduxFetch";
+const AsyncDashboard = lazy(() => import("../pages/Dashboard"));
+
+const Dashboard = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <AsyncDashboard />
+  </Suspense>
+);
 
 export default [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
