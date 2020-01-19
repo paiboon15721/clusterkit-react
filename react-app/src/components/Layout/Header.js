@@ -1,12 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../../stores/auth";
 import Logo from "./Logo";
 
 export default props => {
   const history = useHistory();
+  const { setToken } = useAuth();
 
   const handleSignOut = () => {
     localStorage.setItem("token", "");
+    setToken("");
     history.push("/login");
   };
   return (

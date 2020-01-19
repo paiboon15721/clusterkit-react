@@ -2,9 +2,8 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "../stores/auth";
 
-const PrivateRoute = props => {
+const PrivateRoute = ({ children, ...rest }) => {
   const { token: isAuthenticated } = useAuth();
-  const { children, ...rest } = props;
   return (
     <Route
       {...rest}
