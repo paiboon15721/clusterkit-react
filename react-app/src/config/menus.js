@@ -10,6 +10,7 @@ import Context from "../pages/Context";
 import EditCompanyName from "../pages/EditCompanyName";
 import ReduxTest from "../pages/ReduxTest";
 import ReduxMore from "../pages/ReduxMore";
+import ReduxFetch from "../pages/ReduxFetch";
 
 export default [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
@@ -27,5 +28,6 @@ export default [
   },
   { path: "/context", name: "Context", component: Context },
   { path: "/redux-test", name: "Redux Test", component: ReduxTest },
-  { path: "/redux-more", name: "Redux More", component: ReduxMore }
+  { path: "/redux-more", name: "Redux More", component: ReduxMore },
+  { path: "/redux-fetch", name: "Redux Fetch", component: ReduxFetch }
 ];
