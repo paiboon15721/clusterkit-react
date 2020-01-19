@@ -14,6 +14,7 @@ import UserTable from "./pages/UserTable";
 import ReactUse from "./pages/ReactUse";
 import AntForm from "./pages/AntForm";
 import UncontrolForm from "./pages/UncontrolledForm";
+import HookForm from "./pages/HookForm";
 import "antd/dist/antd.css";
 
 export const menus = [
@@ -23,7 +24,8 @@ export const menus = [
   { path: "/user-table", name: "User Table", component: UserTable },
   { path: "/react-use", name: "React Use", component: ReactUse },
   { path: "/uncontrol-form", name: "Uncontrol Form", component: UncontrolForm },
-  { path: "/ant-form", name: "Ant Form", component: AntForm }
+  { path: "/ant-form", name: "Ant Form", component: AntForm },
+  { path: "/hook-form", name: "Hook Form", component: HookForm }
 ];
 
 const App = () => (
