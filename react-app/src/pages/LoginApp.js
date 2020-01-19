@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const App = props => {
-  console.log(props);
   const [userName, setUserName] = useState("my default Username");
   const [password, setPassword] = useState("");
 

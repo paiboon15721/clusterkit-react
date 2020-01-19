@@ -8,6 +8,7 @@ import UncontrolForm from "../pages/UncontrolledForm";
 import HookForm from "../pages/HookForm";
 import Context from "../pages/Context";
 import EditCompanyName from "../pages/EditCompanyName";
+import ReduxTest from "../pages/ReduxTest";
 
 export default [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
@@ -23,5 +24,6 @@ export default [
     name: "Edit Company Name",
     component: EditCompanyName
   },
-  { path: "/context", name: "Context", component: Context }
+  { path: "/context", name: "Context", component: Context },
+  { path: "/redux-test", name: "Redux Test", component: ReduxTest }
 ];
