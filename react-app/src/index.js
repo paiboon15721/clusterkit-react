@@ -40,10 +40,12 @@ export const menus = [
   { path: "/context", name: "Context", component: Context }
 ];
 
+const token = localStorage.getItem("token");
+
 const App = () => {
   return (
     <Router>
-      <AuthProvider>
+      <AuthProvider token={token}>
         <CompanyProvider>
           <Switch>
             <Route exact path="/login">
